@@ -1,5 +1,4 @@
 // Chomp Applet Version 2
-// December 2, 2010   KJC
 //
 // Cleaned up variable names and reformatted the code.
 
@@ -35,6 +34,8 @@ public class Chomp extends Applet implements ActionListener
 
 	public void init()
 	 {
+      		setSize(550,400);
+      
 		smartDude=new SmartPlayer();
 		dumbPlayer=new NotSmartPlayer();
 		randomDude=new RandomPlayer();
@@ -69,8 +70,8 @@ public class Chomp extends Applet implements ActionListener
 		{
 			for( int z = 0; z < rows; z++ )
 			{
-				xpos=i*25;
-				ypos=z*25;
+				xpos=i*25+85;
+				ypos=z*25+35;
 				piece[chipNum]= new Chip(xpos+18,ypos+18,chipNum);
 				if (chipNum<100)
 				{chipNum++;}
@@ -218,16 +219,18 @@ public class Chomp extends Applet implements ActionListener
 		{
 			chipNum=0;
 			// paint the framework
-			g.setColor( Color.lightGray );
-			g.fillRect( 15, 15, cellWidth*rows, cellWidth*rows );
+			g.setColor( Color.white );
+         g.fillRect(0, 0, 1000, 1000);
+         g.setColor( Color.lightGray );
+			g.fillRect( 100, 50, cellWidth*rows, cellWidth*rows );
 			g.setColor( Color.black );
-			g.drawRect( 10, 10, cellWidth*rows + 10, cellWidth*rows + 10 );
+			g.drawRect( 95, 45, cellWidth*rows + 10, cellWidth*rows + 10 );
 
 			for( int c = 0; c < rows; c++ )
 			{
 				for( int r = 0; r < rows; r++ )
 				{
-					g.drawRect( 15 + cellWidth*c, 15 + cellWidth*r, cellWidth, cellWidth );
+					g.drawRect( 100 + cellWidth*c, 50 + cellWidth*r, cellWidth, cellWidth );
 				}
 			}
 
